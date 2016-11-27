@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript">
+  $(function () {
+      
+       Highcharts.setOptions({
+    chart: {
+        style: {
+            fontFamily: 'sans-serif'
+        },
+       
+    },
+     credits: false
+   });
+   
+    Highcharts.chart('backupChartContainer', {
+        chart: {
+            type: 'column'
+        },
+        exporting: { enabled: false } ,
+        title: {
+            text: 'Backup Operations',
+            style: {
+                    fontSize: 14,
+                    fontWeight: 400
+                
+                    
+                    
+                }
+            
+        },
+        xAxis: {
+            categories: ['Nov 21', 'Nov 20', 'Nov 19', 'Nov 18', 'Nov 17']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'No. of Backup Ops'
+            },
+            max:10,
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        legend: {
+            align: 'right',
+            x: 0,
+            verticalAlign: 'top',
+            y: 13,
+            floating: true,
+             itemStyle: {
+                 fontSize:'8px',
+                 font: '8pt Trebuchet MS, Verdana, sans-serif',
+                 color: '#A0A0A0'
+              },
+              itemHoverStyle: {
+                 color: '#FFF'
+              },
+              itemHiddenStyle: {
+                 color: '#444'
+              }
+
+
+        },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                }
+            }
+        },
+        series: [{
+            name: 'Failed',
+            data: [0, 2, 1, 0, 1],
+            color: 'red'
+        }, {
+            name: 'Succeeded',
+            data: [10, 10, 8, 11, 6]
+            
+        }
+        ]
+    });
+    
+     Highcharts.chart('restoreChartContainer', {
+        chart: {
+            type: 'column'
+        },
+        exporting: { enabled: false } ,
+        title: {
+            text: 'Restore Operations',
+            style: {
+                    fontSize: '14px'
+                }
+        },
+        xAxis: {
+            categories: ['Nov 21', 'Nov 20', 'Nov 19', 'Nov 18', 'Nov 17']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'No. of Restore Ops'
+            },
+            max:4,
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        legend: {
+            align: 'right',
+            x: 0,
+            verticalAlign: 'top',
+            y: 13,
+            floating: true,
+             itemStyle: {
+                 fontSize:'8px',
+                 font: '8pt Trebuchet MS, Verdana, sans-serif',
+                 color: '#A0A0A0'
+              },
+              itemHoverStyle: {
+                 color: '#FFF'
+              },
+              itemHiddenStyle: {
+                 color: '#444'
+              }
+
+
+        },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                }
+            }
+        },
+        series: [{
+            name: 'Failed',
+            data: [0, 1, 0, 1, 0],
+            color: 'red'
+        }, {
+            name: 'Succeeded',
+            data: [2, 1, 0, 0, 1]
+            
+        }
+        ]
+    });
+    
+   
+      Highcharts.chart('maskingChartContainer', {
+        chart: {
+            type: 'column'
+        },
+        exporting: { enabled: false } ,
+        title: {
+            text: 'Clone Operations',
+            style: {
+                    fontSize: '14px'
+                }
+        },
+        xAxis: {
+            categories: ['Nov 21', 'Nov 20', 'Nov 19', 'Nov 18', 'Nov 17']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'No. of Clone Ops'
+            },
+            max:7,
+            stackLabels: {
+                enabled: false,
+                style: {
+                    fontWeight: 'bold',
+                     
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        legend: {
+            align: 'right',
+            x: 0,
+            verticalAlign: 'top',
+            y: 13,
+            floating: true,
+             itemStyle: {
+                 fontSize:'8px',
+                 font: '8pt Trebuchet MS, Verdana, sans-serif',
+                 color: '#A0A0A0'
+              },
+              itemHoverStyle: {
+                 color: '#FFF'
+              },
+              itemHiddenStyle: {
+                 color: '#444'
+              }
+
+
+        },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: false,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                }
+            }
+        },
+        series: [{
+            name: 'Failed',
+            data: [1, 0, 0, 0, 0],
+            color: 'red'
+        }, {
+            name: 'Succeeded',
+            data: [5, 4, 3, 7, 5]
+            
+        }
+        ]
+    });
+});
+  </script>
+  <style>
+  
+  html { overflow-y: hidden; }
+
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+ 
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none;
+    }
+  }
+  
+   .listText { color:#4C4C4C;font-family:Calibri;font-size:13 }
+   .listRed { color:#FF0000;font-weight:bold;font-family:Tahoma;font-size:20 }
+   .listGreen { color:#008733;font-weight:bold;font-family:Tahoma;font-size:20 }
+   .listYellow { color:#f7e81d;font-weight:bold;font-family:Tahoma;font-size:20 }
+   .subscript { color:#4C4C4C;font-family:Tahoma;font-size:10 }
+    
+    
+    .full-height {
+    
+}
+
+.half-height {
+  
+    padding: 0;
+    margin: 0;
+    vertical-align: top;    
+    display:table;
+}
+ 
+.well{
+  background-color:#ffffff;
+}
+#well1 {
+  
+    overflow: hidden; /*better to decide how you want to handle this than to let the browser decide*/
+}
+#well2 {
+   
+    margin-bottom: 0;
+   
+}
+
+.box {
+    padding: 0px 0px 25px 25px;
+}
+.list-group-item-text{font-size:12px;
+    
+}
+  
+  .column {
+   
+    padding: 0;
+    margin: 0;
+    display: table-cell;
+    vertical-align: top;
+    overflow:hidden;
+}
+
+.dropdown-menu, .dropdown-menu>li>a{
+  background-color:#000000;
+
+color:#ffffff
+  
+}
+.list-group-item-danger, .list-group-item-danger>h5{
+    background-color:#ad303f;
+
+color:#ffffff
+}
+.list-group-item-warning,.list-group-item-warning>h5{
+  background-color:#f2c54b;
+
+color:#9b5801
+}
+
+.container-fluid{
+  height:500px;
+}
+.navbar-brand-centered {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 150px;
+    width: 200px;  /* bootstrap has max-width: 200px rule */
+    margin-left: -100px;
+    margin-top: 3px;
+    text-align: center;
+    font-family: proxima-nova-soft, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    Color:white;
+
+  }
+
+.proxima {
+  font-family: proxima-nova-soft, sans-serif;
+font-style: normal;
+font-weight: 700;
+}
+
+.list-group-item-heading{
+font-family: proxima-nova-soft, sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 11px ;
+}
+.listText {
+font-family: proxima-nova-soft, sans-serif;
+font-style: normal;
+font-weight: 300;
+}
+.list-group-item-text{
+    font-family: proxima-nova-soft, sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 11px;
+}
+.proxima-text{
+font-family: proxima-nova-soft, sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 14;
+}
+
+.voffset2 { margin-top: 0px; }
+
+.row{
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+
+  </style>
+</head>
+<body style="background-color:#edeff2;">
+  <header class="navbar navbar-inverse">
+<ul class="nav navbar-nav">
+        <li class="dropdown"  >
+            
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <span class="glyphicon glyphicon-align-right"  ></span></a>
+          
+          <ul class="dropdown-menu">
+            <li><a href="#" >Home</a></li>
+            
+            <li><a href="#" >Targets</a></li>
+            
+            <li><a href="#">Drivers</a></li>
+            
+            <li><a href="#" >Operations</a></li>
+            
+            <li><a href="#" >Policies</a></li>
+            <li><a href="#" >Mappers</a></li>
+            <li><a href="#" >Masking</a></li>
+             <li><a href="#" >Analytics</a></li>
+              <li><a href="#" >Alerts</a></li>
+          </ul>
+        </li>
+         <li><a href="#" > <span class="label label-pill label-danger">6</span>
+      <span class="label label-pill label-warning">8</span>
+      <span class="label label-pill label-primary">25</span>
+          </a></li>
+      </ul>
+      
+       <a class="navbar-brand-centered" href="/"><span style="font-size: 2em"><img src="naftix1.png"</span></a>
+        
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+          <li><a href="#">Admin</a></li>
+          
+        <li class="dropdown">
+            
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">My Profile </a></li>
+            <li class="divider"></li>
+            <li><a href="#">Messages</a></li>
+            <li class="divider"></li>
+            <li><a href="#">History</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Sign Out </a></li>
+          </ul>
+        </li>
+      
+        <li class="dropdown">
+            
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span><span class="caret"></span> </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Preferences </a></li>
+            <li class="divider"></li>
+            <li><a href="#">Set Home Page</a></li>
+        
+        </li>
+      </ul>
+     
+        </li>
+      </ul>
+     </header>
+
+
+ <p> </p>
+ <div class="container-fluid">
+    <div class="col-sm-3" >
+      <div class="row well " style="padding:5px; height: 159.5px;"> 	
+      <h5 class="proxima-text">Target Summary</h5>
+      	<div class="col-sm-6"> 
+            <center> <h1 class="proxima">150</h1> </center> 
+           <center> <p class="proxima-text">Targets</p> </center>  <p>
+          </div>
+         <div class="col-sm-6 well" style="padding:5px;"> 
+           
+           	  <ul style="list-style-type:circle">
+  <li><p><span class="listGreen">140</span> Up </p></li>
+  <li><p><span class="listRed">6</span> Down </p></li>
+  <li><p><span class="listYellow">4</span> Brown out </p></li>
+</ul>
+
+            
+         </div>
+      	
+      
+      </div>
+       <div class="row well " style="padding:5px; height: 159.5px;"> 	
+      <h5 class="proxima-text">Operations</h5>
+      
+      <div class="col-sm-4">
+       <center> <h1 class="proxima">5</h1> </center>
+      <center>  <p class="proxima-text">Backups<p> </center>
+      </div>
+       <div class="col-sm-4"> </center>
+       <center> <h1 class="proxima">1</h1> </center>
+      <center>  <p class="proxima-text">Restore<p> </center>
+      </div>
+       <div class="col-sm-4">
+       <center> <h1 class="proxima">4</h1> </center>
+      <center>  <p class="proxima-text">Clone<p> </center>
+      </div>
+       
+      </div>
+       <div class="row well " style="padding:5px; height: 159.5px;"> 	
+      <h5 class="proxima-text">Drivers</h5>
+      
+      <div class="col-sm-4">
+       <center> <h1 class="proxima">4</h1> </center>
+      <center>  <p class="proxima-text">Backup<p> </center>
+      </div>
+       <div class="col-sm-4"> </center>
+       <center> <h1 class="proxima">2</h1> </center>
+      <center>  <p class="proxima-text">Restore<p> </center>
+      </div>
+       <div class="col-sm-4">
+       <center> <h1 class="proxima">6</h1> </center>
+      <center>  <p class="proxima-text">Clone<p> </center>
+      </div>
+       
+      </div>
+        <div class="row well " style="padding:5px; height: 159.5px;"> 	
+      <h5 class="proxima-text">Cloud Storage Usage</h5>
+      
+      <div class="col-sm-6">
+       <center> <h1 class="proxima">14<sub style="font-size: 12px;">TB</sub></h1> </center>
+      <center>  <p class="proxima-text">Amazon S3<p> </center>
+      </div>
+       <div class="col-sm-6"> 
+       <center> <h1 class="proxima">2<sub style="font-size: 12px;">TB</sub></h1> </center>
+      <center>  <p class="proxima-text">Oracle OSS<p> </center>
+      </div>
+       
+       
+      </div>
+      </div>
+   
+    <div class="col-sm-3 box" >
+       <div class="row well"  style="padding:0px;">
+<div id="backupChartContainer" style="min-width: 310px; height: 158px; margin: 0 auto"></div>
+  </div>
+  
+   <div class="row well"  style="padding:0px;">
+<div id="restoreChartContainer" style="min-width: 310px; height: 158px; margin: 0 auto"></div>
+  </div>
+  
+   <div class="row well"  style="padding:0px;">
+<div id="maskingChartContainer" style="min-width: 310px; height: 158px; margin: 0 auto"></div>
+  </div>
+   
+   <div class="row "   >
+    <div class="col-sm-6 well" style="padding:5px;  height: 158px; margin: 0 auto">
+      <center> <h5 class="proxima-text">Masking Definitions</h5> </center>
+      <div class="col-sm-12" > 
+       <center> <h1 class="proxima">24</h1> </center> 
+       </div>
+      </div>
+      <div  style="padding: 0px;">
+        <div class="col-sm-6 well" style="padding: 5px; height: 158px; margin: 0 auto">
+      <center> <h5 class="proxima-text">Subsetting Definitions</h5> </center>
+       <div class="col-sm-12" > 
+       <center> <h1 class="proxima">15</h1> </center> 
+       </div>
+      </div>
+      </div>
+  </div>
+  </div>
+     
+     <div class="col-sm-3 box ">
+       <div class="column">
+        <div class="row  half-height">
+          
+                 <div style="width:330px;height:329px;line-height:3em; overflow-y: scroll;overflow-x: hidden;">       
+                <div class="list-group "  style=" margin: 0 auto">
+                    
+                    <a href="#" class="list-group-item list-group-item-danger" >
+                
+                        <h5 class="proxima-text"> Critical Alerts  <span class=" pull-right label label-pill label-danger"> 6 </span></h5>
+                    
+                    </a>
+                    <div class="list-group "  style=" margin: 0 auto">
+                    <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">QA_SALES_TIM_DB: Backup Operation Failed <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 3 hours ago </span></h6>
+                        <p class="list-group-item-text">Backup failed while uploading to S3. </p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">DEV_CRM_BOB_DB: Restore Operation failed <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 1 day ago </span></h6>
+                        <p class="list-group-item-text">Restore failed at preparing the database for restore.</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">QA_HCM_TIM_DB: Target unreachable <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 2 days ago </span></h6>
+                        <p class="list-group-item-text">No heartbeat from last 7 days </p>
+                    </a>
+                       <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">QA_CRM_MOBILE_DATA: Backup Operation Failed <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 4 day ago </span></h6>
+                        <p class="list-group-item-text">Backup failed while uploading to S3. </p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">DEV_HCM_MOBILE_DATA: Restore Operation failed <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 4 day ago </span></h6>
+                        <p class="list-group-item-text">Restore failed while connecting to S3 for data.</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">DEV_HCM_TIM_DB: Target unreachable <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 5 days ago </span></h6>
+                        <p class="list-group-item-text">No heartbeat from last 7 days </p>
+                    </a>
+                    </div>
+                     
+                </div>
+            
+        </div>
+    
+    </div>
+    
+       
+        <div class="row half-height ">
+         
+                <div class="list-group"> 
+                  <div style="width:330px;height:327px;line-height:3em; overflow-y: scroll;overflow-x: hidden;"> 
+                    <a href="#" class="list-group-item list-group-item-warning">
+                        <h5 class="proxima-text"> Warnings  <span class=" pull-right label label-pill label-warning"> 8 </span></h5>
+                        
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">DEV_HCM_BOB_DB: S3 storage  bucket 86% Full <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 6 hours ago </span></h6>
+                        <p class="list-group-item-text">New Backups might fail for lack of space</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">QA_CRM_BOB_DB: Oracle storage  bucket 85% Full<span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 1 day ago </span></h6>
+                        <p class="list-group-item-text">New Backups might fail for lack of space</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">QA_CRM_TIM_DB: CPU Usage more than 70%  <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 2 days ago </span></h6>
+                        <p class="list-group-item-text">CPU Usage more than 70%  </p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">QA_CRM_SAM_DB: CPU Usage more than 79% <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 2 days ago </span></h6>
+                        <p class="list-group-item-text">QA_CRM_BOB_DB: CPU Usage more than 79%</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">DEV_HCM_SAM_DB: S3 storage  bucket 89% Full <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 3 days ago </span></h6>
+                        <p class="list-group-item-text">New Backups might fail for lack of space</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">QA_CRM_SAM_DB: Oracle storage  bucket 90% Full<span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 3 days ago </span></h6>
+                        <p class="list-group-item-text">New Backups might fail for lack of space</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">QA_CRM_SAM_DB: CPU Usage more than 72%  <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 3 days ago </span></h6>
+                        <p class="list-group-item-text">CPU Usage more than 70%  </p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">PRD_CRM_BOB_DB: CPU Usage more than 75% <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 4 days ago </span></h6>
+                        <p class="list-group-item-text">QA_CRM_BOB_DB: CPU Usage more than 75%</p>
+                    </a>
+                </div>
+            
+        </div>
+    </div>
+    </div>
+     </div>
+    <div class="col-sm-3 box">
+       <div class="row full-height well2">
+         <div style="width:340px;height:665px;line-height:3em;overflow-y: scroll;overflow-x: hidden;">      
+                <div class="list-group"> 
+                    <a href="#" class="list-group-item">
+                        <h5 class="proxima-text" > News  <span class="badge pull-right"> 25 </span></h5>
+                        
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">QA_CRM_BOB_DB: Got registerd <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 1 day ago </span></h6>
+                        <p class="list-group-item-text">Oracle database got registered </p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">DEV_CRM_BOB_DB: Backup policy modified <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 1 day ago </span></h6>
+                        <p class="list-group-item-text">Frequncy for backup policy is increased</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">QA_CRM_TIM_DB: Got registerd <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 2 days ago </span></h6>
+                        <p class="list-group-item-text">My sql database got registered </p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">Backup driver v2 got uploaded <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 2 days ago </span></h6>
+                        <p class="list-group-item-text">Support for backing up cassandra database is enabled.</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">PROD_CRM_MOBILE_DATA: Masking Definiton 'PCI Compliance' created <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 4 days ago </span></h6>
+                        <p class="list-group-item-text">Masking Definition that makes the data compliant with PCI</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">PROD_CRM_MOBILE_DATA: Restore Completed <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 4 days ago </span></h6>
+                        <p class="list-group-item-text">Restore with backup 'Full Backup Nov-12-2016-4:22' is completed.</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">QA_SALES_TIM_DB: Got registerd <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 5 days ago </span></h6>
+                        <p class="list-group-item-text">Oracle database got registered </p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">DEV_SALES_TIM_DB: Backup policies modified <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 6 days ago </span></h6>
+                        <p class="list-group-item-text">Frequncy for backup policy is increased</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">DEV_CRM_TIM_DB: Got registerd <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 6 days ago </span></h6>
+                        <p class="list-group-item-text">My sql database got registered </p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">Restore driver v2 got uploaded <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 6 days ago </span></h6>
+                        <p class="list-group-item-text">Support for restoring up cassandra database is enabled.</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">DEV_CRM_MOBILE_DATA: Masking Definiton 'PCI Compliance' created <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 7 days ago </span></h6>
+                        <p class="list-group-item-text">Masking Definition that makes the data compliant with PCI</p>
+                    </a>
+                     <a href="#" class="list-group-item">
+                        <h6 class="list-group-item-heading">DEV_CRM_MOBILE_DATA: Restore Completed <span class="glyphicon glyphicon-time pull-right"> </span> <span class="listText pull-right"> 7 days ago </span></h6>
+                        <p class="list-group-item-text">Restore with backup 'Full Backup Nov-12-2016-4:22' is completed.</p>
+                    </a>
+                </div>
+            
+        </div>
+    </div>
+    </div>
+
+</div>
+<br>
+ 
+
+</body>
+</html>
